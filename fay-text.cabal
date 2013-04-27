@@ -1,0 +1,24 @@
+name:                fay-text
+version:             0.1.0.0
+synopsis:            Fay Text type represented as JavaScript strings
+description:         Fay Text type represented as JavaScript strings
+homepage:            https://github.com/faylang/fay-text
+bug-reports:         https://github.com/faylang/fay-text/issues
+license:             BSD3
+license-file:        LICENSE
+author:              Adam Bergmark
+maintainer:          adam@edea.se
+copyright:           2013 Adam Bergmark
+build-type:          Simple
+cabal-version:       >=1.8
+data-files: src/Fay/Text.hs
+
+source-repository head
+  type: git
+  location: https://github.com/faylang/fay-text.git
+
+library
+  exposed: False
+  hs-source-dirs: src
+  exposed-modules: Fay.Text
+  build-depends: fay-base >= 0.14.1.0

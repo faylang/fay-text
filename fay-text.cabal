@@ -21,4 +21,6 @@ library
   exposed: False
   hs-source-dirs: src
   exposed-modules: Fay.Text
-  build-depends: fay-base >= 0.14.1.0
+  build-depends: text
+               , fay      >= 0.15
+               , fay-base >= 0.14.1.0

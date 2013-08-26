@@ -24,4 +24,4 @@ library
   exposed-modules: Fay.Text
   build-depends: text
                , fay      >= 0.16
-               , fay-base >= 0.14.1.0
+               , fay-base >= 0.16

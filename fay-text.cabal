@@ -4,7 +4,7 @@ synopsis:            Fay Text type represented as JavaScript strings
 description:         Text type represented as JavaScript strings for Fay and Data.Text for GHC. Use with OverloadedStrings and RebindableSyntax to have Fay treat string literals as Text.
 homepage:            https://github.com/faylang/fay-text
 bug-reports:         https://github.com/faylang/fay-text/issues
-license:             BSD3
+license:             MIT
 license-file:        LICENSE
 author:              Michael Snoyman, Adam Bergmark
 maintainer:          adam@edea.se

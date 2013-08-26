@@ -1,14 +1,15 @@
 name:                fay-text
 version:             0.1.0.0
 synopsis:            Fay Text type represented as JavaScript strings
-description:         Fay Text type represented as JavaScript strings
+description:         Text type represented as JavaScript strings for Fay and Data.Text for GHC. Use with OverloadedStrings and RebindableSyntax to have Fay treat string literals as Text.
 homepage:            https://github.com/faylang/fay-text
 bug-reports:         https://github.com/faylang/fay-text/issues
 license:             BSD3
 license-file:        LICENSE
-author:              Adam Bergmark
+author:              Michael Snoyman, Adam Bergmark
 maintainer:          adam@edea.se
-copyright:           2013 Adam Bergmark
+copyright:           2013 Michael Snoyman, Adam Bergmark
+category:            Data, Fay, Text
 build-type:          Simple
 cabal-version:       >=1.8
 data-files: src/Fay/Text.hs

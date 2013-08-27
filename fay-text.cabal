@@ -23,5 +23,5 @@ library
   hs-source-dirs: src
   exposed-modules: Fay.Text
   build-depends: text
-               , fay      >= 0.16
-               , fay-base >= 0.16
+               , fay      >= 0.17
+               , fay-base >= 0.17

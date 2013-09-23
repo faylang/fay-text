@@ -10,30 +10,38 @@
 --
 
 module Fay.Text
- ( Text (..)
- , pack
- , unpack
- , fromString
- ) where
+  ( module Fay.Text.Type
+  , empty
+  , cons
+  , snoc
+  , append
+  , uncons
+  , head
+  , last
+  , tail
+  , init
+  , null
+  , length
+  , map
+  , intercalate
+  , intersperse
+  , reverse
+  , toLower
+  , toUpper
+  , concat
+  , concatMap
+  , any
+  , all
+  , maximum
+  , minimum
+  ) where
 
-import           Prelude
 import           Data.Data
+import           Fay.Text.Type
+import Prelude (Bool, Char, Int, Maybe)
+
 #ifdef FAY
 import           FFI
-#else
-import           Fay.FFI
-#endif
-
-#ifdef FAY
-
-data Text = Text
-    deriving (Show, Read, Eq, Typeable, Data)
-
-pack :: String -> Text
-pack = ffi "%1"
-
-unpack :: Text -> String
-unpack = ffi "%1"
 
 empty :: Text
 empty = ffi "''"
@@ -51,16 +59,16 @@ uncons :: Text -> Maybe (Char, Text)
 uncons = ffi "%1[0] ? { instance: 'Just', slot1 : [%1[0],%1.slice(1)] } : { instance : 'Nothing' }"
 
 head :: Text -> Char
-head = ffi "%1[0] || throw new Error('Fay.Text.head: empty Text')"
+head = ffi "%1[0] || (function () {throw new Error('Fay.Text.head: empty Text'); }())"
 
 last :: Text -> Char
-last = ffi "%1.length ? %1[%1.length-1] : throw new Error('Fay.Text.last: empty Text')"
+last = ffi "%1.length ? %1[%1.length-1] : (function() { throw new Error('Fay.Text.last: empty Text') })()"
 
-tail :: Text -> Char
-tail = ffi "%1.length ? %1.slice(1) : throw new Error('Fay.Text.tail: empty Text')"
+tail :: Text -> Text
+tail = ffi "%1.length ? %1.slice(1) : (function () { throw new Error('Fay.Text.tail: empty Text') })()"
 
-init :: Text -> Char
-init = ffi "%1.length ? %1.slice(0,-1) : throw new Error('Fay.Text.init: empty Text')"
+init :: Text -> Text
+init = ffi "%1.length ? %1.slice(0,-1) : (function () { throw new Error('Fay.Text.init: empty Text') })()"
 
 null :: Text -> Bool
 null = ffi "!(%1.length)"
@@ -161,9 +169,3 @@ unpack :: Text -> String
 unpack = T.unpack
 
 #endif
-
--- | Have this in scope with the OverloadedStrings and BindableSyntax extensions
--- and Fay will replace all string literals with Text.
--- This can't import fromString from Data.String because the package would need a base dependency then.
-fromString :: String -> Text
-fromString = pack

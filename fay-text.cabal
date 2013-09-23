@@ -21,7 +21,7 @@ source-repository head
 library
   exposed: False
   hs-source-dirs: src
-  exposed-modules: Fay.Text
+  exposed-modules: Fay.Text, Fay.Text.Type
   build-depends: text
                , fay      >= 0.17
                , fay-base >= 0.17

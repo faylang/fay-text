@@ -1,5 +1,5 @@
 name:                fay-text
-version:             0.1.0.0
+version:             0.2.0.0
 synopsis:            Fay Text type represented as JavaScript strings
 description:         Text type represented as JavaScript strings for Fay and Data.Text for GHC. Use with OverloadedStrings and RebindableSyntax to have Fay treat string literals as Text.
 homepage:            https://github.com/faylang/fay-text
@@ -23,5 +23,5 @@ library
   hs-source-dirs: src
   exposed-modules: Fay.Text, Fay.Text.Type
   build-depends: text
-               , fay      >= 0.17
-               , fay-base >= 0.17
+               , fay      >= 0.18
+               , fay-base >= 0.18

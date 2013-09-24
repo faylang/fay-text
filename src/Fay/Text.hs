@@ -157,15 +157,29 @@ minimum = ffi "(function (s) { \
 -- TODO zip, zipWith
 
 #else
-
 import qualified Data.Text as T
 
-type Text = T.Text
-
-pack :: String -> Text
-pack = T.pack
-
-unpack :: Text -> String
-unpack = T.unpack
-
+empty       = T.empty
+cons        = T.cons
+snoc        = T.snoc
+append      = T.append
+uncons      = T.uncons
+head        = T.head
+last        = T.last
+tail        = T.tail
+init        = T.init
+null        = T.null
+length      = T.length
+map         = T.map
+intercalate = T.intercalate
+intersperse = T.intersperse
+reverse     = T.reverse
+toLower     = T.toLower
+toUpper     = T.toUpper
+concat      = T.concat
+concatMap   = T.concatMap
+any         = T.any
+all         = T.all
+maximum     = T.maximum
+minimum     = T.minimum
 #endif

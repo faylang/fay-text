@@ -38,7 +38,7 @@ module Fay.Text
 
 import           Data.Data
 import           Fay.Text.Type
-import Prelude (Bool, Char, Int, Maybe)
+import           Prelude (Bool, Char, Int, Maybe)
 
 #ifdef FAY
 import           FFI
@@ -82,8 +82,8 @@ map = ffi "[].map.call(%2, %1).join('')"
 intercalate :: Text -> [Text] -> Text
 intercalate = ffi "%2.join(%1)"
 
-intersperse :: Char -> [Text] -> Text
-intersperse = ffi "%2.join(%1)"
+intersperse :: Char -> Text -> Text
+intersperse = ffi "%2.split('').join(%1)"
 
 -- TODO transpose
 

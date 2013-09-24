@@ -1,15 +1,13 @@
+{-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RebindableSyntax  #-}
 
 module Test where
 
-import Fay.Text (Text)
+import           Fay.Text (Text, fromString)
 import qualified Fay.Text as T
 import           FFI
-import TestFFI
-import Prelude hiding ((++))
-
-fromString = T.fromString
+import           Prelude  hiding ((++))
 
 (++) = T.append
 
@@ -21,6 +19,12 @@ eq msg exp res
 b :: Bool -> Text
 b True = "true"
 b False = "false"
+
+d :: Automatic a -> Text
+d = ffi "%1 + ''"
+
+charToUpper :: Char -> Char
+charToUpper = ffi "%1.toUpperCase()"
 
 main :: Fay ()
 main = do
@@ -38,7 +42,7 @@ main = do
   eq "length" "3" (d $ T.length "abc")
   eq "map" "ABC" (T.map charToUpper "abc")
   eq "intercalate" "a_b_c" (T.intercalate "_" ["a","b","c"])
-  eq "intersperse" "a_b_c" (T.intersperse '_' ["a","b","c"])
+  eq "intersperse" "a_b_c" (T.intersperse '_' "abc")
   eq "reverse" "cba" (T.reverse "abc")
   eq "toLower" "abc" (T.toLower "ABC")
   eq "toUpper" "ABC" (T.toUpper "abc")

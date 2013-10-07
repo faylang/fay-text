@@ -1,5 +1,6 @@
 {-# LANGUAGE CPP                #-}
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE EmptyDataDecls     #-}
 
 -- | Module to be shared between server and client.
 --
@@ -19,8 +20,8 @@ import           Data.Data
 #ifdef FAY
 import           FFI
 
-data Text = Text
-  deriving (Show, Read, Eq, Typeable, Data)
+data Text
+  deriving (Data, Eq, Ord, Read, Show, Typeable)
 
 pack :: String -> Text
 pack = ffi "%1"

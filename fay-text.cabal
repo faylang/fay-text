@@ -7,7 +7,7 @@ bug-reports:         https://github.com/faylang/fay-text/issues
 license:             MIT
 license-file:        LICENSE
 author:              Michael Snoyman, Adam Bergmark
-maintainer:          adam@edea.se
+maintainer:          adam@bergmark.nl
 copyright:           2013 Michael Snoyman, Adam Bergmark
 category:            Data, Fay, Text
 build-type:          Simple

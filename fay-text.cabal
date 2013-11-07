@@ -12,6 +12,9 @@ copyright:           2013 Michael Snoyman, Adam Bergmark
 category:            Data, Fay, Text
 build-type:          Simple
 cabal-version:       >=1.8
+extra-source-files:
+  README.md
+  CHANGELOG.md
 data-files: src/Fay/Text.hs, src/Fay/Text/Type.hs
 
 source-repository head

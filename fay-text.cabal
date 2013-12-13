@@ -25,6 +25,7 @@ library
   exposed: False
   hs-source-dirs: src
   exposed-modules: Fay.Text, Fay.Text.Type
+  ghc-options: -Wall
   build-depends: text
                , fay      >= 0.18
                , fay-base >= 0.18

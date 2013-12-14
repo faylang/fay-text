@@ -1,6 +1,5 @@
 {-# LANGUAGE CPP                #-}
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE PackageImports     #-}
 
 -- | Module to be shared between server and client.
 --
@@ -36,11 +35,11 @@ module Fay.Text
   , minimum
   ) where
 
-import           Data.Data
 import           Fay.Text.Type
 import           Prelude (Bool, Char, Int, Maybe)
 
 #ifdef FAY
+import           Data.Data
 import           FFI
 
 empty :: Text
@@ -157,29 +156,56 @@ minimum = ffi "(function (s) { \
 -- TODO zip, zipWith
 
 #else
+
 import qualified Data.Text as T
 
+empty       :: Text
 empty       = T.empty
+cons        :: Char -> Text -> Text
 cons        = T.cons
+snoc        :: Text -> Char -> Text
 snoc        = T.snoc
+append      :: Text -> Text -> Text
 append      = T.append
+-- Can't have Maybe in the type since fay-text doesn't depend on base
+-- and fay-base has a separate Maybe type.
+--uncons      :: Text -> Maybe (Char, Text)
 uncons      = T.uncons
+head        :: Text -> Char
 head        = T.head
+last        :: Text -> Char
 last        = T.last
+tail        :: Text -> Text
 tail        = T.tail
+init        :: Text -> Text
 init        = T.init
+null        :: Text -> Bool
 null        = T.null
+length      :: Text -> Int
 length      = T.length
+map         :: (Char -> Char) -> Text -> Text
 map         = T.map
+intercalate :: Text -> [Text] -> Text
 intercalate = T.intercalate
+intersperse :: Char -> Text -> Text
 intersperse = T.intersperse
+reverse     :: Text -> Text
 reverse     = T.reverse
+toLower     :: Text -> Text
 toLower     = T.toLower
+toUpper     :: Text -> Text
 toUpper     = T.toUpper
+concat      :: [Text] -> Text
 concat      = T.concat
+concatMap   :: (Char -> Text) -> Text -> Text
 concatMap   = T.concatMap
+any         :: (Char -> Bool) -> Text -> Bool
 any         = T.any
+all         :: (Char -> Bool) -> Text -> Bool
 all         = T.all
+maximum     :: Text -> Char
 maximum     = T.maximum
+minimum     :: Text -> Char
 minimum     = T.minimum
+
 #endif

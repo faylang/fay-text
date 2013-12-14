@@ -16,8 +16,10 @@ module Fay.Text.Type
   ) where
 
 import           Prelude
-import           Data.Data
+
 #ifdef FAY
+
+import           Data.Data
 import           FFI
 
 data Text

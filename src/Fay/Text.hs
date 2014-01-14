@@ -167,9 +167,7 @@ snoc        :: Text -> Char -> Text
 snoc        = T.snoc
 append      :: Text -> Text -> Text
 append      = T.append
--- Can't have Maybe in the type since fay-text doesn't depend on base
--- and fay-base has a separate Maybe type.
---uncons      :: Text -> Maybe (Char, Text)
+uncons      :: Text -> Maybe (Char, Text)
 uncons      = T.uncons
 head        :: Text -> Char
 head        = T.head

@@ -26,6 +26,6 @@ library
   hs-source-dirs: src
   exposed-modules: Fay.Text, Fay.Text.Type
   ghc-options: -Wall
-  build-depends: text
-               , fay      >= 0.18
-               , fay-base >= 0.18
+  build-depends: text     <  1.2
+               , fay      == 0.19.*
+               , fay-base == 0.19.*

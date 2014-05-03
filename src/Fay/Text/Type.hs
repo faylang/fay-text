@@ -13,6 +13,7 @@ module Fay.Text.Type
   , pack
   , unpack
   , fromString
+  , toString
   ) where
 
 import           Prelude
@@ -49,3 +50,6 @@ unpack = T.unpack
 -- and Fay will replace all string literals with Text.
 fromString :: String -> Text
 fromString = pack
+
+toString :: Text -> String
+toString = unpack

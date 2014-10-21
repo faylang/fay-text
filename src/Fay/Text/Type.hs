@@ -1,6 +1,7 @@
 {-# LANGUAGE CPP                #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE EmptyDataDecls     #-}
+{-# LANGUAGE PackageImports     #-}
 
 -- | Module to be shared between server and client.
 --
@@ -18,31 +19,9 @@ module Fay.Text.Type
 import           Prelude
 
 #ifdef FAY
-
-import           Data.Data
-import           FFI
-
-data Text
-  deriving (Data, Eq, Ord, Read, Show, Typeable)
-
-pack :: String -> Text
-pack = ffi "%1"
-
-unpack :: Text -> String
-unpack = ffi "%1"
-
+import "fay-base" Data.Text (Text, pack, unpack)
 #else
-
-import qualified Data.Text as T
-
-type Text = T.Text
-
-pack :: String -> Text
-pack = T.pack
-
-unpack :: Text -> String
-unpack = T.unpack
-
+import "text" Data.Text (Text, pack, unpack)
 #endif
 
 -- | Have this in scope with the OverloadedStrings and BindableSyntax extensions

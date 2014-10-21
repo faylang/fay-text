@@ -1,5 +1,9 @@
 ## Changelog
 
+### 0.3.2 (2014-10-21)
+
+* fay-text is now purely a compatibility layer between Fay and GHC. For Fay we reexport `Data.Text` from fay-base.
+
 ### 0.3.1 (2014-10-11)
 
 * Allow `fay 0.21`

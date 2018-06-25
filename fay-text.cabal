@@ -27,5 +27,5 @@ library
   exposed-modules: Fay.Text, Fay.Text.Type
   ghc-options: -Wall
   build-depends: text     <  1.3
-               , fay      >= 0.21.2 && < 0.24
-               , fay-base >= 0.19.4 && < 0.21
+               , fay      >= 0.21.2 && < 0.25
+               , fay-base >= 0.19.4 && < 0.22
